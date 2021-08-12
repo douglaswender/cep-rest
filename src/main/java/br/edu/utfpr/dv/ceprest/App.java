@@ -4,6 +4,8 @@ import org.glassfish.grizzly.http.server.HttpServer;
 import org.glassfish.jersey.grizzly2.httpserver.GrizzlyHttpServerFactory;
 import org.glassfish.jersey.server.ResourceConfig;
 
+import br.edu.utfpr.dv.ceprest.service.CidadeService;
+import br.edu.utfpr.dv.ceprest.service.EstadoService;
 import br.edu.utfpr.dv.ceprest.service.HelloWorld;
 
 import java.io.IOException;
@@ -19,6 +21,8 @@ public class App
     public static HttpServer startHttpServer() {
         final ResourceConfig config = new ResourceConfig();
         config.register(HelloWorld.class);
+        config.register(EstadoService.class);
+        config.register(CidadeService.class);
 
         return GrizzlyHttpServerFactory.createHttpServer(BASE_URI, config);
     }
