@@ -54,4 +54,15 @@ public class CidadeService {
 		}
 	}
 	
+	@GET
+	@Path("/listar/Rondonia")
+	@Produces(MediaType.APPLICATION_JSON)
+	public Cidade[] getCidadesDeRondonia() {
+		try {
+			return new CidadeDAO().cidadesDeRondonia().toArray(new Cidade[] {});
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return null;
+		}
+	}
 }
